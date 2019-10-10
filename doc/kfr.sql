@@ -55,6 +55,7 @@ CREATE TABLE `kfr_order` (
 
 insert  into `kfr_order`(`order_id`,`coin_number`,`totalPrice`,`price`,`buyer_id`,`seller_id`,`order_status`,`create_time`,`update_time`) values ('5cd4b374',1011,5055,5,1,2,1,'2019-10-02 15:50:41','2019-10-02 15:50:48');
 insert  into `kfr_order`(`order_id`,`coin_number`,`totalPrice`,`price`,`buyer_id`,`seller_id`,`order_status`,`create_time`,`update_time`) values ('5d4b37d4',1011,5055,5,1,2,1,'2019-10-02 15:50:41','2019-10-02 15:50:48');
+insert  into `kfr_order`(`order_id`,`coin_number`,`totalPrice`,`price`,`buyer_id`,`seller_id`,`order_status`,`create_time`,`update_time`) values ('5d4b97d4',1011,5055,5,1,2,1,'2019-10-02 15:50:41','2019-10-02 15:50:48');
 
 /*Table structure for table `kfr_user` */
 
