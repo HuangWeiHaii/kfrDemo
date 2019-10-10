@@ -28,11 +28,11 @@ public class MainDataService implements IMainDataService {
         try {
 
             Double pool = mainData.getPool();
-            Double value = pool - (pool * 0.002);
+            Double value = pool - (pool * mainData.getProportion());
             //扣除矿池千分之二
             mainData.setPool(value);
             //可售余额增加释放的值
-            mainData.setAvailableBalance(mainData.getAvailableBalance() + (pool * 0.002));
+            mainData.setAvailableBalance(mainData.getAvailableBalance() + (pool * mainData.getProportion()));
             //存入数据
             iMainDataDao.updateData(mainData);
             return true;

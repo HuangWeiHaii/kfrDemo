@@ -1,5 +1,10 @@
 package com.hwh.kfr.model;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
 
@@ -7,6 +12,8 @@ import java.io.Serializable;
  * @description 主要账户数据类
  *
  */
+@Component
+@PropertySource("classpath:mainData.properties")
 public class MainData implements Serializable {
 
     //可售额度 availableQuota;
@@ -17,6 +24,16 @@ public class MainData implements Serializable {
     private Double availableBalance;
     private Double pool;
     private Integer uid;
+    private static Double proportion;
+
+    public Double getProportion() {
+        return proportion;
+    }
+
+    @Value("${mainData.proportion}")
+    public void setProportion(Double proportion) {
+        MainData.proportion = proportion;
+    }
 
     public Integer getMid() {
         return mid;

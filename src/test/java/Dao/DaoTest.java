@@ -141,11 +141,11 @@ public class DaoTest {
 
     @Test
     public void test7(){
-        //User user = userService.findUserById(1);
-        //MainData mainData = user.getMainData();
-        //
-        ////执行签到
-        //boolean release = mainDataService.release(mainData);
+        User user = userService.findUserById(1);
+        MainData mainData = user.getMainData();
+
+        //执行签到
+        boolean release = mainDataService.release(mainData);
 
     }
 
@@ -176,6 +176,13 @@ public class DaoTest {
 
     }
 
+    @Autowired
+    MainData mainData;
+    @Test
+    public void test10(){
+        System.out.println(mainData.toString());
+        System.out.println(mainData.getProportion());
+    }
 
 
 
