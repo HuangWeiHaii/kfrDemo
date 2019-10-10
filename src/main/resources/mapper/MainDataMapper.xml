@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwh.kfr.dao.IMainDataDao">
+
+    <resultMap id="MainDataMap" type="com.hwh.kfr.model.MainData">
+        <id column="mid" jdbcType="INTEGER" property="mid" />
+        <result column="availableQuota" jdbcType="DOUBLE" property="availableQuota" />
+        <result column="availableBalance" jdbcType="DOUBLE" property="availableBalance" />
+        <result column="pool" jdbcType="DOUBLE" property="pool" />
+        <result column="uid" jdbcType="INTEGER" property="uid" />
+    </resultMap>
+
+    <select id="selectAllDataById" resultMap="MainDataMap" parameterType="integer">
+        select * from kfr_maindata where uid = #{uid}
+    </select>
+
+    <update id="updateData" parameterType="com.hwh.kfr.model.MainData">
+        update kfr_maindata set pool = #{pool},availableBalance = #{availableBalance},availableQuota = #{availableQuota}
+        <where>
+            and uid = #{uid}
+        </where>
+    </update>
+
+</mapper>
