@@ -1,5 +1,6 @@
 package com.hwh.kfr.service.impl;
 
+import com.hwh.kfr.dao.IMainDataDao;
 import com.hwh.kfr.dao.IUserDao;
 import com.hwh.kfr.model.Inferior;
 import com.hwh.kfr.model.User;
@@ -18,6 +19,8 @@ public class UserService implements IUserService {
 
     @Autowired
     private IUserDao userDao;
+    @Autowired
+    private IMainDataDao mainDataDao;
 
     @Override
     public List<User> findAllUser() {
@@ -72,6 +75,10 @@ public class UserService implements IUserService {
 
         //成功
         userDao.addUser(user);
+        User user2 = userDao.findUserByUsername(user.getUsername());
+
+        //创建账户数据
+        mainDataDao.addMainData(user2.getId());
         map.put("msg","注册成功");
         map.put("status",true);
         return map;

@@ -3,6 +3,7 @@ package com.hwh.kfr.controller;
 import com.hwh.kfr.model.User;
 import com.hwh.kfr.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
