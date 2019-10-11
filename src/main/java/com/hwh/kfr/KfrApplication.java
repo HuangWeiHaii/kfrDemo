@@ -10,7 +10,6 @@ import org.springframework.cache.annotation.EnableCaching;
 @MapperScan("com.hwh.kfr.dao")
 @EnableCaching
 @SpringBootApplication
-//@EnableConfigurationProperties
 public class KfrApplication {
 
 

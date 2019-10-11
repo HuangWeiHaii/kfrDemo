@@ -8,6 +8,7 @@ import com.hwh.kfr.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.annotation.RequestScope;
 
 import java.security.PrivateKey;
 import java.util.HashMap;
@@ -27,6 +28,13 @@ public class UserController {
     @ResponseBody
     public List<User> register(){
         return userService.findAllUser();
+    }
+
+    @RequestMapping("/{id}")
+    @ResponseBody
+    public User findUserById(@PathVariable Integer id){
+        User user = userService.findUserById(id);
+        return user;
     }
 
     @PostMapping("/release")
