@@ -12,6 +12,13 @@ public class Inferior implements Serializable {
     private String phone;
     private String nikeName;
 
+    public String getNikeName() {
+        return nikeName;
+    }
+
+    public void setNikeName(String nikeName) {
+        this.nikeName = nikeName;
+    }
 
     public Integer getId() {
         return id;
@@ -29,13 +36,7 @@ public class Inferior implements Serializable {
         this.phone = phone;
     }
 
-    public String getNikeName() {
-        return nikeName;
-    }
 
-    public void setNikeName(String nikeName) {
-        this.nikeName = nikeName;
-    }
 
     @Override
     public String toString() {

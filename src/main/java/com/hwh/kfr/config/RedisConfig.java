@@ -83,9 +83,9 @@ public class RedisConfig extends CachingConfigurerSupport {
 
 
     @Bean
-    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
         // 配置redisTemplate
-        RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<Object, Object>();
+        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
 
         //设置序列化

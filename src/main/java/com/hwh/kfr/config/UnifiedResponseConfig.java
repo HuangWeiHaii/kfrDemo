@@ -29,10 +29,15 @@ public class UnifiedResponseConfig implements ResponseBodyAdvice<Object>{
                                   Class<? extends HttpMessageConverter<?>> aClass,
                                   ServerHttpRequest serverHttpRequest,
                                   ServerHttpResponse serverHttpResponse) {
+
         if (body != null) {
+            if (body instanceof String){
+                return body;
+            }
             return new CommonResult<Object>(body);
         }
         else {
+            System.out.println("body is null");
             CommonResult<Object> commonResult = new CommonResult<Object>(null);
             commonResult.setStatus(-1);
             commonResult.setErrorCode("500");

@@ -44,9 +44,14 @@ public class UserService implements IUserService {
     }
 
     @Override
+    //@Async("taskExecutor")
     public User login(String username,String password) {
         User user = userDao.findUserByUsernameAndPassword(username,password);
         if (user != null){
+            List<Inferior> inferiorUsername = userDao.findInferiorUsername(user.getUsername());
+            if (inferiorUsername != null && inferiorUsername.size() != 0) {
+                user.setInferior(inferiorUsername);
+            }
             return user;
         }
         return null;

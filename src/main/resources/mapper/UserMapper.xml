@@ -3,7 +3,7 @@
 <mapper namespace="com.hwh.kfr.dao.IUserDao">
 
     <resultMap id="UserMap" type="com.hwh.kfr.model.User">
-        <id column="id" jdbcType="INTEGER" property="id" />
+        <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="nikeName" property="nikeName" jdbcType="VARCHAR"/>
         <result column="username" property="username" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
@@ -21,7 +21,7 @@
     </resultMap>
 
     <resultMap id="AllInfoMap" type="com.hwh.kfr.model.User">
-        <id column="id" jdbcType="INTEGER" property="id" />
+        <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="username" property="username" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
         <result column="idcard" property="idcard" jdbcType="VARCHAR"/>
@@ -72,7 +72,7 @@
 
     <!--查找所有下级-->
     <select id="findInferiorUsername" resultType="com.hwh.kfr.model.Inferior" parameterType="string">
-       SELECT * FROM kfr_user WHERE superiors_id = (SELECT id FROM kfr_user WHERE username = #{username});
+       SELECT K2.id,K2.nikeName,K2.phone FROM kfr_user K1,kfr_user K2 WHERE K1.id = K2.`superiors_id` AND K1.username = #{username}
     </select>
 
 
@@ -88,12 +88,6 @@
     <!--<update id="updateUser" parameterType="com.hwh.kfr.model.User">
         update kfr_user set
     </update>-->
-
-
-
-
-
-
 
 
 </mapper>
