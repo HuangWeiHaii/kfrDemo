@@ -15,6 +15,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 @SpringBootApplication
 public class KfrApplication {
 
+	//测试新电脑git
 
 	public static void main(String[] args) {
 		SpringApplication.run(KfrApplication.class, args);
