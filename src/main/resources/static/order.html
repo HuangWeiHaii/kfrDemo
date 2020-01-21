@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/addOrder" method="post">
+    数量<input type="text" name="coin_number"><br>
+    买家<input type="text" name="buyer_id"><br>
+    卖家<input type="text" name="seller_id"><br>
+    单价<input type="text" name="price"><br>
+    <input type="submit" value="挂单">
+</form>
+<br>
+<form action="/completeOrder" method="post">
+    订单ID<input type="text" name="id"><br>
+    <input type="submit" value="确认订单">
+</form>
+
+</body>
+</html>

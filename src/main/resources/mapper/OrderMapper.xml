@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwh.kfr.dao.IOrderDao">
+
+    <resultMap id="orderMap" type="com.hwh.kfr.model.Order">
+        <id column="order_id" property="order_id" />
+        <result column="coin_number" property="coin_number"/>
+        <result column="totalPrice" property="totalPrice"/>
+        <result column="price" property="price"/>
+        <association property="buyer" javaType="com.hwh.kfr.model.User">
+            <id column="id" jdbcType="INTEGER" property="id" />
+            <result column="nikeName" property="nikeName" jdbcType="VARCHAR"/>
+            <result column="username" property="username" jdbcType="VARCHAR"/>
+            <result column="password" property="password" jdbcType="VARCHAR"/>
+            <result column="idcard" property="idcard" jdbcType="VARCHAR"/>
+            <result column="phone" property="phone" jdbcType="VARCHAR"/>
+            <result column="superiors_id" property="superiors_id" jdbcType="INTEGER"/>
+            <result column="certifiedStatus" property="certifiedStatus" jdbcType="INTEGER"/>
+        </association>
+    </resultMap>
+
+    <select id="findAllOrders" resultType="com.hwh.kfr.model.Order">
+        select o.*
+        from kfr_order o
+    </select>
+
+
+</mapper>
